@@ -730,6 +730,10 @@ func (t *templateService) RenderLaunchManifest(vmi *v1.VirtualMachineInstance) (
 					Name:      "hook-sidecar-sockets",
 					MountPath: hooks.HookSocketsSharedDirectory,
 				},
+                k8sv1.VolumeMount{
+	                Name:      "libvirt-runtime",
+    	            MountPath: "/var/run/libvirt",
+        		},
 			},
 		})
 	}
